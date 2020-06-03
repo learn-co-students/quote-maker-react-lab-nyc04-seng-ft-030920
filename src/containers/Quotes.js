@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import QuoteCard from '../components/QuoteCard';
+import { removeQuote, upvoteQuote, downvoteQuote } from '../actions/quotes'
 
 class Quotes extends Component {
 
+  handleUpvote = (quoteId) => {
+    
+  }
+
+  handleDownvote = (quoteId) => {
+
+  }
+
+  handleRemove = (quoteId) => {
+
+  }
+
   render() {
     let quotesArray = this.props.quotes.map(quote => {
-      return <li key={quote.id}><QuoteCard quote={this.props.quote}/></li>
+      return <li key={quote.id}><QuoteCard quote={quote} /></li>
     })
     return (
       <div>
@@ -29,5 +42,4 @@ class Quotes extends Component {
   }
 }
 
-//add arguments to connect as needed
-export default connect(state => { state })(Quotes);
+export default connect(state => ({ quotes: state.quotes }))(Quotes);
